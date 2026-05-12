@@ -1,0 +1,45 @@
+\chapter{Results and Discussion}
+\section{Preprocessing Results}
+QC filtering reduced technical noise by removing low-quality cells and genes. Normalization reduced sequencing-depth effects, and log transformation compressed extreme count values. The HVG selection step retained 3000 genes with high variance, improving computational efficiency while preserving disease-associated transcriptional heterogeneity.
+
+\section{Classification Results}
+Random Forest classification was used to evaluate whether the selected genes could distinguish reference, AKI, and CKD cells. A strong classification result indicates that the HVG expression matrix contains disease-associated signal. However, classification performance alone does not prove clinical biomarker validity; biological interpretation and external validation remain necessary.
+
+\section{Pairwise Biomarker Discovery}
+Three pairwise analyses were performed. The AKI versus reference comparison emphasizes acute injury response. The CKD versus reference comparison emphasizes chronic remodeling and fibrosis. The CKD versus AKI comparison targets progression-associated differences that may separate persistent chronic disease from acute injury.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.86\textwidth]{AKI_vs_Ref_biomarkers.pdf}
+\caption{Top candidate biomarkers for AKI versus reference kidney cells. Injury-associated genes such as \textit{HAVCR1} and \textit{LCN2} may reflect tubular stress and damage.}
+\label{fig:aki_ref_biomarkers}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.86\textwidth]{CKD_vs_Ref_biomarkers.pdf}
+\caption{Top candidate biomarkers for CKD versus reference kidney cells. Matrix and fibrosis-associated genes may indicate chronic remodeling.}
+\label{fig:ckd_ref_biomarkers}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.86\textwidth]{CKD_vs_AKI_biomarkers.pdf}
+\caption{Top candidate progression biomarkers for CKD versus AKI. These genes may help distinguish chronic maladaptive repair from acute injury.}
+\label{fig:ckd_aki_biomarkers}
+\end{figure}
+
+\section{Progression Interpretation}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{biomarker_progression_diagram.pdf}
+\caption{Conceptual biomarker progression diagram from reference kidney state through AKI toward CKD.}
+\label{fig:progression_diagram}
+\end{figure}
+
+\section{Biomarker Ranking Tables}
+\input{tables/biomarker_rankings}
+\input{tables/biomarker_comparison}
+
+\section{Discussion}
+The results support the usefulness of combining scRNA-seq preprocessing with interpretable machine learning. Genes associated with acute injury, extracellular matrix deposition, and fibrosis are biologically plausible in kidney disease. Nevertheless, several limitations must be considered: scRNA-seq measures RNA rather than protein abundance, cell-level samples are not independent patient-level observations, and Random Forest feature importance may be biased toward variables with particular distributional properties. Therefore, the identified candidates should be interpreted as computational priorities for downstream validation rather than definitive clinical biomarkers.

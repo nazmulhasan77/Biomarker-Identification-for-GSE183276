@@ -1,0 +1,9 @@
+\chapter{Conclusion and Future Work}
+\section{Conclusion}
+This thesis developed a machine learning-based pipeline for identifying candidate protein biomarker genes for AKI, CKD, and CKD progression using the GSE183276 single-cell kidney atlas. The workflow integrated QC filtering, normalization, log transformation, highly variable gene selection, Random Forest classification, feature importance ranking, and pairwise biomarker scoring. The combined score prioritized genes that were both predictive and differentially expressed between conditions. Biologically plausible genes such as \textit{HAVCR1}, \textit{LCN2}, \textit{COL1A1}, \textit{FN1}, and \textit{SERPINE1} support the relevance of the approach.
+
+\section{Limitations}
+The study has several limitations. First, scRNA-seq data measure mRNA abundance, which may not directly correspond to protein abundance. Second, single cells from the same donor are not statistically independent patient samples. Third, feature importance from Random Forest is useful for ranking but does not establish causality. Fourth, cell-type-specific effects require deeper stratified analysis.
+
+\section{Future Work}
+Future work should validate biomarkers using independent cohorts, proteomics, ELISA, or immunohistochemistry. Additional models such as XGBoost, elastic net logistic regression, support vector machines, and graph-based neural methods may be compared. Pathway enrichment and cell-type-specific biomarker discovery should be added to improve biological interpretability. Finally, candidate genes should be mapped to druggability, secretion, and clinical assay feasibility.

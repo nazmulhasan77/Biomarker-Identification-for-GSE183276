@@ -18,3 +18,4 @@ __pycache__/
 
 # Matrix Market files
 *.mtx
+*Metadata*.txt

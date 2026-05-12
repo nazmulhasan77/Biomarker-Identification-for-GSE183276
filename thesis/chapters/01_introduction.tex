@@ -1,0 +1,24 @@
+\chapter{Introduction}
+\section{Background}
+Kidney disease represents a major global health challenge because renal dysfunction is often detected after substantial tissue injury has already occurred. Chronic kidney disease (CKD) is defined by persistent abnormalities in kidney structure or function and is associated with increased risk of cardiovascular disease, kidney failure, and mortality \cite{kdigo2024ckd}. Acute kidney injury (AKI) is a rapid decline in kidney function caused by ischemic, toxic, inflammatory, or obstructive insults. Although AKI is clinically distinct from CKD, experimental and clinical evidence suggests that unresolved AKI can contribute to CKD through maladaptive repair, persistent inflammation, capillary rarefaction, and fibrosis \cite{chawla2014aki_ckd}.
+
+Traditional bulk transcriptomics averages gene expression across mixed cell populations. In contrast, single-cell RNA sequencing (scRNA-seq) measures transcript abundance at cellular resolution, allowing disease-associated signals to be examined in heterogeneous kidney tissue \cite{liao2020singlecell}. This is especially important for the kidney because its function depends on specialized epithelial, endothelial, stromal, and immune cell populations.
+
+\section{Problem Statement}
+Reliable biomarkers are needed to distinguish healthy reference kidney tissue, AKI, CKD, and potential CKD progression states. Existing clinical markers such as serum creatinine are delayed and non-specific. Transcriptomic biomarker discovery can identify genes associated with injury, fibrosis, and disease progression, but scRNA-seq data are high-dimensional, sparse, noisy, and class-imbalanced. Therefore, computational approaches must combine biological preprocessing with interpretable machine learning.
+
+\section{Objectives}
+The objectives of this thesis are:
+\begin{enumerate}[label=\arabic*.]
+\item To preprocess the GSE183276 scRNA-seq dataset using QC filtering, normalization, log transformation, and highly variable gene selection.
+\item To train Random Forest classifiers for disease-state prediction using the top 3000 highly variable genes.
+\item To identify candidate biomarkers for AKI, CKD, and CKD progression through pairwise comparisons.
+\item To rank biomarkers using a combined score based on Random Forest importance and expression difference.
+\item To interpret top genes in relation to tubular injury, inflammation, extracellular matrix remodeling, and fibrosis.
+\end{enumerate}
+
+\section{Contributions}
+This work contributes a reproducible BSc-level bioinformatics and machine learning framework for kidney disease biomarker discovery. The framework integrates single-cell preprocessing, feature selection, Random Forest classification, pairwise biomarker prioritization, and thesis-ready visualization.
+
+\section{Thesis Organization}
+Chapter 2 reviews related literature. Chapter 3 describes materials and methods. Chapter 4 explains dataset preparation and preprocessing. Chapter 5 presents the machine learning methodology. Chapter 6 discusses results. Chapter 7 interprets candidate biomarkers. Chapter 8 concludes the thesis and outlines future work.

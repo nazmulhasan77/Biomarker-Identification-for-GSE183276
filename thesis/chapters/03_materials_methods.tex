@@ -1,0 +1,27 @@
+\chapter{Materials and Methods}
+\section{Study Design}
+This thesis uses a computational retrospective study design based on publicly available scRNA-seq data. The workflow begins with raw count matrices and metadata, continues through preprocessing and feature selection, and ends with supervised classification and biomarker ranking.
+
+\section{Dataset}
+The dataset was obtained from GSE183276, the Human Kidney Healthy and Injury Cell Atlas. It includes human kidney cells profiled with 10x Chromium scRNA-seq technology and annotated by disease condition. The primary class label is \texttt{condition.l1}, containing \texttt{Ref}, \texttt{AKI}, and \texttt{CKD}.
+\input{tables/dataset_summary}
+
+\section{Computational Environment}
+The analysis was implemented in Python using Scanpy, AnnData, NumPy, pandas, SciPy, scikit-learn, Matplotlib, and Seaborn. LaTeX was used for thesis preparation, with IEEE citation style for references.
+
+\section{Overall Workflow}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.95cm, every node/.style={font=\small}, box/.style={rectangle, rounded corners, draw=black, fill=blue!7, minimum width=5.8cm, minimum height=0.8cm}, arr/.style={-{Latex}, thick}]
+\node[box] (a) {Raw scRNA-seq counts and metadata};
+\node[box, below=of a] (b) {Quality control filtering};
+\node[box, below=of b] (c) {Normalization and log transformation};
+\node[box, below=of c] (d) {Top 3000 highly variable genes};
+\node[box, below=of d] (e) {Random Forest classification};
+\node[box, below=of e] (f) {Pairwise biomarker discovery};
+\node[box, below=of f] (g) {Biological interpretation};
+\draw[arr] (a)--(b); \draw[arr] (b)--(c); \draw[arr] (c)--(d); \draw[arr] (d)--(e); \draw[arr] (e)--(f); \draw[arr] (f)--(g);
+\end{tikzpicture}
+\caption{Overall computational workflow for CKD and AKI biomarker discovery.}
+\label{fig:overall_workflow}
+\end{figure}

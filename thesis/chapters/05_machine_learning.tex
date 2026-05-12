@@ -1,0 +1,72 @@
+\chapter{Machine Learning Methodology}
+\section{Feature Matrix and Labels}
+Let $X \in \mathbb{R}^{n \times p}$ be the final expression matrix, where $n$ is the number of single cells and $p=3000$ is the number of selected highly variable genes. The label vector $\mathbf{y}$ contains disease conditions from \texttt{condition.l1}.
+
+\section{Random Forest Classifier}
+Random Forest is an ensemble of decision trees. Each tree is trained on a bootstrap sample, and each split considers a random subset of features. For a cell $x$, the predicted class is obtained by majority voting:
+\begin{equation}
+\hat{y}=\operatorname{mode}\{h_1(x),h_2(x),\ldots,h_T(x)\},
+\end{equation}
+where $T=300$ is the number of trees and $h_t$ is the prediction of tree $t$.
+
+The model was configured as:
+\begin{equation}
+\texttt{RandomForestClassifier}(n\_estimators=300, class\_weight=\text{balanced}, random\_state=42).
+\end{equation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{random_forest_workflow.pdf}
+\caption{Random Forest workflow for training multiple decision trees and aggregating predictions through majority voting.}
+\label{fig:rf_workflow}
+\end{figure}
+
+\section{Feature Importance}
+For gene $j$, Random Forest importance can be estimated by the average impurity reduction over all trees:
+\begin{equation}
+I_j = \frac{1}{T}\sum_{t=1}^{T}\sum_{s \in S_{j,t}} \Delta G(s),
+\end{equation}
+where $S_{j,t}$ is the set of splits in tree $t$ using gene $j$ and $\Delta G(s)$ is the decrease in Gini impurity at split $s$.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.86\textwidth]{feature_importance_plot.pdf}
+\caption{Top genes ranked by Random Forest feature importance. Highly ranked genes contribute strongly to disease-state classification.}
+\label{fig:feature_importance}
+\end{figure}
+
+\section{Evaluation Metrics}
+For each class, precision, recall, and F1-score are defined as
+\begin{equation}
+Precision=\frac{TP}{TP+FP}, \qquad Recall=\frac{TP}{TP+FN},
+\end{equation}
+\begin{equation}
+F1 = 2\times\frac{Precision\times Recall}{Precision+Recall}.
+\end{equation}
+The confusion matrix $C$ is defined by
+\begin{equation}
+C_{ij}=|\{k: y_k=i \land \hat{y}_k=j\}|,
+\end{equation}
+where rows represent true classes and columns represent predicted classes.
+\input{tables/rf_metrics}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.74\textwidth]{confusion_matrix.pdf}
+\caption{Confusion matrix summarizing agreement between true and predicted disease-state labels.}
+\label{fig:confusion_matrix}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.74\textwidth]{roc_curve.pdf}
+\caption{ROC curve for pairwise or one-versus-rest disease-state classification. Higher area under the curve indicates stronger discriminative performance.}
+\label{fig:roc_curve}
+\end{figure}
+
+\section{Biomarker Ranking}
+For each pairwise comparison, candidate biomarkers were ranked using
+\begin{equation}
+Score_j = I_j \times |\bar{x}_{j,A}-\bar{x}_{j,B}|,
+\end{equation}
+where $I_j$ is the Random Forest importance of gene $j$, and $|\bar{x}_{j,A}-\bar{x}_{j,B}|$ is the absolute expression difference between conditions $A$ and $B$. This score favors genes with both predictive importance and measurable expression shifts.

@@ -1,0 +1,20 @@
+\begin{table}[H]
+\centering
+\caption{Summary of the GSE183276 dataset used in this thesis.}
+\label{tab:dataset_summary}
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+Property & Description \\
+\midrule
+Dataset accession & GSE183276 \\
+Dataset title & Human Kidney Healthy and Injury Cell Atlas \\
+Organism & \textit{Homo sapiens} \\
+Technology & 10x Chromium single-cell RNA sequencing \\
+Input files & \texttt{counts.mtx}, \texttt{genes.tsv}, \texttt{barcodes.tsv}, metadata file \\
+Processed file & \texttt{GSE183276\_HVG3000\_by\_variance.h5ad} \\
+Primary label & \texttt{condition.l1} \\
+Classes & Ref, AKI, CKD \\
+Feature selection & Top 3000 highly variable genes by variance \\
+\bottomrule
+\end{tabularx}
+\end{table}

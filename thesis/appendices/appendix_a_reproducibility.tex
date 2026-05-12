@@ -1,0 +1,10 @@
+\chapter{Reproducibility Notes}
+The analysis uses relative paths and public input files. Recommended execution order is: dataset overview, visualization, QC filtering, normalization, HVG selection, Random Forest classification, and class-specific biomarker discovery. The final thesis figures can be regenerated using:
+\begin{lstlisting}[language=bash]
+python thesis/scripts/generate_thesis_figures.py
+\end{lstlisting}
+The thesis can be compiled using:
+\begin{lstlisting}[language=bash]
+cd thesis
+latexmk -pdf main.tex
+\end{lstlisting}

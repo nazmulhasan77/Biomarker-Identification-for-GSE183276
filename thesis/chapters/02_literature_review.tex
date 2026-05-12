@@ -1,0 +1,18 @@
+\chapter{Literature Review}
+\section{CKD Biomarkers}
+CKD biomarker research has focused on markers of filtration, tubular damage, inflammation, and fibrosis. Fibrosis is a central pathological feature of CKD and involves extracellular matrix accumulation, myofibroblast activation, and altered epithelial-stromal communication \cite{liu2011fibrosis}. Genes such as \textit{COL1A1} and \textit{FN1} are frequently associated with matrix deposition and remodeling. \textit{SERPINE1}, which encodes plasminogen activator inhibitor-1, has been linked with profibrotic signaling and impaired extracellular matrix turnover.
+
+\section{AKI Biomarkers}
+AKI biomarkers aim to detect renal injury before conventional clinical markers become abnormal. \textit{HAVCR1}, encoding kidney injury molecule-1 (KIM-1), is widely studied as a proximal tubule injury marker. \textit{LCN2}, encoding neutrophil gelatinase-associated lipocalin (NGAL), is associated with tubular stress, inflammation, and early kidney injury \cite{devarajan2008ngal}. These markers provide biological context for transcriptomic injury signatures observed in scRNA-seq data.
+
+\section{Single-Cell Kidney Studies}
+Single-cell transcriptomic studies have produced detailed kidney cell atlases and disease maps. The Human Kidney Healthy and Injury Cell Atlas provides a valuable resource for studying reference, AKI, and CKD states at cellular resolution \cite{lake2023kidneyatlas}. Such datasets enable the discovery of disease-associated genes that may be hidden in bulk tissue averages.
+
+\section{Machine Learning in Nephrology}
+Machine learning has been applied to kidney disease diagnosis, risk prediction, survival analysis, and biomarker discovery. In high-dimensional omics data, tree-based models are popular because they can capture non-linear interactions and provide interpretable feature importance scores \cite{breiman2001randomforest}. However, model interpretation must be combined with biological validation because predictive genes are not automatically causal disease drivers.
+
+\section{Random Forest Biomarker Discovery}
+Random Forest aggregates multiple decision trees trained on bootstrap samples. Its feature importance estimates can rank genes according to their contribution to classification. In biomarker discovery, this is useful because the model can identify discriminative gene signatures without requiring linear separability. Combining feature importance with expression difference improves biological relevance by prioritizing genes that are both predictive and differentially expressed between conditions.
+
+\section{Related Works Comparison}
+\input{tables/related_works_table}

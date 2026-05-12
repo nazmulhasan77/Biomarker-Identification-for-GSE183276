@@ -1,0 +1,67 @@
+\documentclass[12pt,a4paper,oneside]{report}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{amsmath,amssymb}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,calc}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{enumitem}
+
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=blue, urlcolor=blue}
+\graphicspath{{figures/}{../results/}}
+\onehalfspacing
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{1.2em}
+
+\newcommand{\thesistitle}{Machine Learning-Based Protein Biomarker Identification for Chronic Kidney Disease Using Single-Cell RNA Sequencing Data}
+\newcommand{\studentname}{Student Name}
+\newcommand{\studentid}{Student ID}
+\newcommand{\supervisor}{Supervisor Name}
+\newcommand{\department}{Department of Computer Science and Engineering}
+\newcommand{\university}{University Name}
+
+\begin{document}
+\pagenumbering{roman}
+\input{chapters/00_title_pages}
+\input{chapters/00_abstract_acknowledgement}
+\tableofcontents
+\listoffigures
+\listoftables
+\clearpage
+\pagenumbering{arabic}
+
+\input{chapters/01_introduction}
+\input{chapters/02_literature_review}
+\input{chapters/03_materials_methods}
+\input{chapters/04_dataset_preprocessing}
+\input{chapters/05_machine_learning}
+\input{chapters/06_results_discussion}
+\input{chapters/07_biomarker_interpretation}
+\input{chapters/08_conclusion_future_work}
+
+\appendix
+\input{appendices/appendix_a_reproducibility}
+\input{appendices/appendix_b_supplementary_tables}
+\input{appendices/appendix_c_code_listing}
+
+\bibliographystyle{IEEEtran}
+\bibliography{bibliography/references}
+\end{document}
