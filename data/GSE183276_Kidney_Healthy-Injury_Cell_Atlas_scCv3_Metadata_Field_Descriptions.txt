@@ -1,0 +1,54 @@
+Field	Description
+library	Assay Library ID
+nCount_RNA	Number of UMI per cell
+nFeature_RNA	Number of genes detected per cell
+percent.er	Percent ER ribosomal transcripts
+percent.mt	Percent mitochondrial transcripts
+degen.score	Per cell degenerative state score calculated using minimum conserved degenerative gene set
+aEpi.score	Per cell adaptive epithelial state score calculated using minimal overlapping aPT & aTAL gene set
+aStr.score	Per cell adaptive stromal state score calculated using minimal aStr enriched gene set
+cyc.score	Per cell cycling state score calculated using minimal conserved cycling gene set
+matrisome.score	Per cell ECM score calculated according to Kuppe et al. 2020
+collagen.score	Per cell ECM score calculated according to Kuppe et al. 2020
+glycoprotein.score	Per cell ECM score calculated according to Kuppe et al. 2020
+proteoglycan.score	Per cell ECM score calculated according to Kuppe et al. 2020
+S.Score	S phase score calculated using Seurat
+G2M.Score	G2M phase score calculated using Seurat
+Phase	Cell cycle phase based on scores calculated using Seurat
+experiment	Experiment IDs (full)
+experiment.short	Experiment IDs (short)
+specimen	Sample used
+condition.long	Full condition name
+condition.l1	Condition abbreviation level 1
+condition.l2	Condition abbreviation level 2
+condition.l3	Condition abbreviation level 3
+patient	Patient ID
+region.l1	Region of organ sampled level 1
+region.l2	Region of organ sampled level 2
+percent.cortex	Percentage of the sample associated with the cortex
+percent.medulla	Percentage of the sample associated with the medulla
+sex	Sex of patient
+race	Race of patient
+tissue_type	Tissue processing/procurement type
+assay	Type of assay run
+location	Location of kidney where biopsy was taken
+laterality	Left or right organ used
+snDrop_predicted_subclass	Subclass labels predicted from Lake et al. 2019
+snDrop_prediction_score	Prediction scores for subclasses from Lake et al. 2019
+id	Reference (snCv3) or Query (scCv3) Data
+predicted.class.score	snCv3 class label predictions
+predicted.class	Prediction scores for class labels from snCv3
+predicted.subclass.l1.score	snCv3 Subclass level 1 label predictions
+predicted.subclass.l1	Prediction scores for subclass level 1 labels from snCv3
+predicted.subclass.l3.score	snCv3 Subclass level 3 label predictions
+predicted.subclass.l3	Prediction scores for subclass level 3 labels from snCv3
+sc.subclass.l2	Independent subclass level 2 annotations of scCv3 data
+pagoda_k100_infomap_coembed	Pagoda clustering of integrated snCv3 and scCv3 using k = 100
+subclass.full	Subclass annotations for integrated snCv3/scCv3 clusters - full names
+subclass.l3	Subclass annotations for integrated snCv3/scCv3 clusters - abbreviations - Level 3
+subclass.l2	Subclass annotations for integrated snCv3/scCv3 clusters - abbreviations - Level 2
+subclass.l1	Subclass annotations for integrated snCv3/scCv3 clusters - abbreviations - Level 1
+state.l2	Injury (altered) or healthy (reference) state for clusters - Level 2
+state.l1	Injury (altered) or healthy (reference) state for clusters - Level 1
+class	Broad cell type or class for integrated snCv3/scCv3 clusters clusters
+structure	Substructure the cluster or cell type belongs to
